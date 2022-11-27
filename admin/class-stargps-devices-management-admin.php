@@ -75,7 +75,7 @@ class Stargps_Devices_Management_Admin {
 	 * @since    1.0.0
 	 */
 	public function stargps_devices_management_add_settings_menu() {
-		add_menu_page( __( 'Stargps Devices Management', 'stargps-devices-management' ), 'Device Management', 'publish_pages', 'devices-management', array( $this, 'display_settings_page' ), STARGPSDEVICESMANAGEMENT_PLUGIN_URL . '/assets/images/logo.ico' );
+		add_menu_page( esc_html__( 'Stargps API Devices', 'stargps-devices-management' ), 'API Devices', 'publish_pages', 'devices-management', array( $this, 'display_settings_page' ), STARGPSDEVICESMANAGEMENT_PLUGIN_URL . '/assets/images/logo.ico' );
 	}
 
 	/**
