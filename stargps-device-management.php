@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name:     Stargps Devices Xlsx 
+ * Plugin Name:     Stargps Devices Xlsx
  * Plugin URI:      http://stargps.ma/
  * Description:     Management of GPS devices SIM card credit .
  * Author:          Younes DRO
@@ -13,8 +13,8 @@
  * @package         Stargps_Devices_Management
  */
 
-if ( ! defined ( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
 }
 
 define( 'STARGPSDEVICESMANAGEMENT_BASENAME', plugin_basename( __FILE__ ) );
@@ -55,12 +55,11 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-stargps-devices-management
 
 /**
  * Begins execution of the plugin.
+ *
  * @since    1.0.0
  */
-
-
-function Stargps_Devices_Management_init() {
-    $StarGPSDevicesMAnagement = Stargps_Devices_Management::instance();
+function stargps_devices_management_init() {
+	Stargps_Devices_Management::instance();
 }
 
-add_action('plugins_loaded', 'Stargps_Devices_Management_init');
+add_action( 'plugins_loaded', 'stargps_devices_management_init' );
