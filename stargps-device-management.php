@@ -27,6 +27,8 @@ define( 'STARGPSDEVICESMANAGEMENT_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) 
 
 define( 'STARGPSDEVICESMANAGEMENT_XLSX_FOLDER', 'satargps-xlsx' );
 
+define( 'STARGPSDEVICESMANAGEMENT_VERSION', '1.0.0' );
+
 /**
  * The code that runs during plugin activation.
  */
