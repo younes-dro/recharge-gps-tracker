@@ -24,7 +24,7 @@ if ( isset( $_GET['save_devices_msg'] ) ) {
 
 				</li>
 				<li class="skltbs-tab-item">
-				<button class="skltbs-tab" data-identity="advanced" ><?php esc_html_e( 'Paramètres', 'stargps-devices-management' ); ?>	
+				<button class="skltbs-tab" data-identity="new_api" ><?php esc_html_e( 'New API', 'stargps-devices-management' ); ?>	
 				</button>
 				</li>
 				<li class="skltbs-tab-item">
@@ -44,8 +44,8 @@ if ( isset( $_GET['save_devices_msg'] ) ) {
 					<?php require_once STARGPSDEVICESMANAGEMENT_PLUGIN_DIR_PATH . 'admin/partials/pages/stargps_devices_management_api.php'; ?>
 				</div>
 
-				<div id='stargps-devices-management_advanced' class="stargps-devices-management-tab-conetent skltbs-panel">
-				<?php require_once STARGPSDEVICESMANAGEMENT_PLUGIN_DIR_PATH . 'admin/partials/pages/stargps_devices_management_advanced.php'; ?>
+				<div id='stargps-devices-management_new_api' class="stargps-devices-management-tab-conetent skltbs-panel">
+				<?php require_once STARGPSDEVICESMANAGEMENT_PLUGIN_DIR_PATH . 'admin/partials/pages/stargps_devices_management_new_api.php'; ?>
 				</div>
 				<div id='stargps-devices-management_logs' class="stargps-devices-management-tab-conetent skltbs-panel">
 				<?php require_once STARGPSDEVICESMANAGEMENT_PLUGIN_DIR_PATH . 'admin/partials/pages/stargps_devices_management_error_log.php'; ?>
