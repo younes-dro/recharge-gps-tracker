@@ -173,17 +173,16 @@ function stargps_device_management_check_api_connection( $type, $url, $email, $p
 
 	if ( $type === 'traccar' ) {
 
-				$args         = array(
-					'headers' => array(
-
-						'Authorization' => 'Basic ' . base64_encode( $email . ':' . $password ),
-					),
-				);
+		$args                 = array(
+			'headers' => array(
+				'Authorization' => 'Basic ' . base64_encode( $email . ':' . $password ),
+			),
+		);
 				$response_arr = wp_remote_get( $url . '/api/devices', $args );
 				// $body = json_decode(wp_remote_retrieve_body($response_arr));
-				if ( is_array( $response_arr ) ) {
-					return $response_arr['response']['code'];
-				}
+		if ( is_array( $response_arr ) ) {
+			return $response_arr['response']['code'];
+		}
 	}
 	if ( $type === 'gpswox' ) {
 

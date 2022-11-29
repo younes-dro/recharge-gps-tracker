@@ -334,10 +334,29 @@ class Stargps_Devices_Management_Admin {
 
 					}
 				} else {
-					echo '<pre>';
-					var_dump( stargps_device_management_check_api_connection( $_POST['type_gps'], $_POST['url'], $_POST['email'], $_POST['password'] ) );
-					echo '</pre>';
+					$error_response = stargps_device_management_check_api_connection( $_POST['type_gps'], $_POST['url'], $_POST['email'], $_POST['password'] );
+					echo '<table id="api-error">';
+					echo '<tr>';
+					echo '<th>CODE</th>';
+					echo '<th>Message</th>';
+					echo '</tr>';
+					echo '<tr>';
+					echo '<td>' . $error_response['code'] . '</td>';
+					echo '<td>' . $error_response['message'] . '</td>';
+					echo '</tr>';
+					echo '</table>';
 				}
+			} else {
+				echo '<table id="api-error">';
+				echo '<tr>';
+				echo '<th>CODE</th>';
+				echo '<th>Message</th>';
+				echo '</tr>';
+				echo '<tr>';
+				echo '<td>0</td>';
+				echo '<td>Empty form</td>';
+				echo '</tr>';
+				echo '</table>';
 			}
 		}
 
