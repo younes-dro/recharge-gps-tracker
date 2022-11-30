@@ -423,3 +423,19 @@ table#api-error {
     background-color: #04AA6D;
     color: white;
   }
+  div.bottom-btn{
+    margin-top: 10px;
+    text-align: center;
+  }
+  .ets-submit{
+    padding: 10px 20px;
+    background: #444;
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0px 0px 0px 0px;
+    border: 0px;
+  }
+  .ets-bg-green{
+    background-color: #77A02E !important;
+    color: #ffffff;
+  }
