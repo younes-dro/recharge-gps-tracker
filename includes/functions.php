@@ -350,3 +350,16 @@ function stargps_device_management_get__saved_api_list() {
 		echo 'Pas de API ';
 	}
 }
+
+/**
+ * Get current screen URL
+ *
+ * @param NONE
+ * @return STRING $url
+ */
+function stargps_device_management_get_current_screen_url() {
+	$parts       = parse_url( home_url() );
+	$current_uri = "{$parts['scheme']}://{$parts['host']}" . ( isset( $parts['port'] ) ? ':' . $parts['port'] : '' ) . add_query_arg( null, null );
+
+	return $current_uri;
+}
