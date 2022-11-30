@@ -5,7 +5,9 @@
 
 class Stargps_Devices_Management_Activator {
 
-
+	/**
+	 * Create tables on activate the plugin
+	 */
 	public static function activate() {
 
 		global $wpdb;
@@ -49,7 +51,8 @@ class Stargps_Devices_Management_Activator {
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 		dbDelta( $sql_devices );
 		dbDelta( $sql_api );
-		update_option( 'stargps-devices-management_uuid_file_name', wp_generate_uuid4() );
+		update_option( 'stargps_devices_management_uuid_file_name', wp_generate_uuid4() );
+		update_option( 'stargps_devices_management_log_api_response', false );
 	}
 
 }

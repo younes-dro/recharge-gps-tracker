@@ -173,17 +173,16 @@ function stargps_device_management_check_api_connection( $type, $url, $email, $p
 
 	if ( $type === 'traccar' ) {
 
-				$args         = array(
-					'headers' => array(
-
-						'Authorization' => 'Basic ' . base64_encode( $email . ':' . $password ),
-					),
-				);
+		$args                 = array(
+			'headers' => array(
+				'Authorization' => 'Basic ' . base64_encode( $email . ':' . $password ),
+			),
+		);
 				$response_arr = wp_remote_get( $url . '/api/devices', $args );
 				// $body = json_decode(wp_remote_retrieve_body($response_arr));
-				if ( is_array( $response_arr ) ) {
-					return $response_arr['response']['code'];
-				}
+		if ( is_array( $response_arr ) ) {
+			return $response_arr['response']['code'];
+		}
 	}
 	if ( $type === 'gpswox' ) {
 
@@ -350,4 +349,17 @@ function stargps_device_management_get__saved_api_list() {
 	} else {
 		echo 'Pas de API ';
 	}
+}
+
+/**
+ * Get current screen URL
+ *
+ * @param NONE
+ * @return STRING $url
+ */
+function stargps_device_management_get_current_screen_url() {
+	$parts       = parse_url( home_url() );
+	$current_uri = "{$parts['scheme']}://{$parts['host']}" . ( isset( $parts['port'] ) ? ':' . $parts['port'] : '' ) . add_query_arg( null, null );
+
+	return $current_uri;
 }

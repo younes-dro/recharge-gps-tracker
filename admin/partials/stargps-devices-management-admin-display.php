@@ -1,18 +1,5 @@
-<?php
 
-/**
- *
- */
-?>
-<?php
-if ( isset( $_GET['save_devices_msg'] ) ) {
-	?>
-	<div class="notice notice-success is-dismissible support-success-msg">
-		<p><?php echo esc_html( $_GET['save_devices_msg'] ); ?></p>
-	</div>
-	<?php
-}
-?>
+
 <h1><img  class="stargps-devices-management-logo" src="<?php echo STARGPSDEVICESMANAGEMENT_PLUGIN_URL; ?>/assets/images/logo-medium.png" /><?php esc_html_e( 'API Devices', 'stargps-devices-management' ); ?></h1>
 		<div id="stargps-devices-management-outer" class="skltbs-theme-light" data-skeletabs='{ "startIndex": 0 }'>
 			<ul class="skltbs-tab-group">
@@ -24,8 +11,11 @@ if ( isset( $_GET['save_devices_msg'] ) ) {
 
 				</li>
 				<li class="skltbs-tab-item">
-				<button class="skltbs-tab" data-identity="advanced" ><?php esc_html_e( 'Paramètres', 'stargps-devices-management' ); ?>	
-				</button>
+				<button class="skltbs-tab" data-identity="new_api" ><?php esc_html_e( 'New API', 'stargps-devices-management' ); ?></button>
+				</li>
+				<li class="skltbs-tab-item">
+				<button class="skltbs-tab" data-identity="settings" ><?php esc_html_e( 'Settings', 'stargps-devices-management' ); ?>	
+				</button>				
 				</li>
 				<li class="skltbs-tab-item">
 				<button class="skltbs-tab" data-identity="logs" ><?php esc_html_e( 'Logs', 'stargps-devices-management' ); ?>	
@@ -44,9 +34,12 @@ if ( isset( $_GET['save_devices_msg'] ) ) {
 					<?php require_once STARGPSDEVICESMANAGEMENT_PLUGIN_DIR_PATH . 'admin/partials/pages/stargps_devices_management_api.php'; ?>
 				</div>
 
-				<div id='stargps-devices-management_advanced' class="stargps-devices-management-tab-conetent skltbs-panel">
-				<?php require_once STARGPSDEVICESMANAGEMENT_PLUGIN_DIR_PATH . 'admin/partials/pages/stargps_devices_management_advanced.php'; ?>
+				<div id='stargps-devices-management_new_api' class="stargps-devices-management-tab-conetent skltbs-panel">
+				<?php require_once STARGPSDEVICESMANAGEMENT_PLUGIN_DIR_PATH . 'admin/partials/pages/stargps_devices_management_new_api.php'; ?>
 				</div>
+				<div id='stargps-devices-management_settings' class="stargps-devices-management-tab-conetent skltbs-panel">
+				<?php require_once STARGPSDEVICESMANAGEMENT_PLUGIN_DIR_PATH . 'admin/partials/pages/stargps_devices_management_settings.php'; ?>
+				</div>				
 				<div id='stargps-devices-management_logs' class="stargps-devices-management-tab-conetent skltbs-panel">
 				<?php require_once STARGPSDEVICESMANAGEMENT_PLUGIN_DIR_PATH . 'admin/partials/pages/stargps_devices_management_error_log.php'; ?>
 				</div> 

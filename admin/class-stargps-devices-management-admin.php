@@ -334,10 +334,29 @@ class Stargps_Devices_Management_Admin {
 
 					}
 				} else {
-					echo '<pre>';
-					var_dump( stargps_device_management_check_api_connection( $_POST['type_gps'], $_POST['url'], $_POST['email'], $_POST['password'] ) );
-					echo '</pre>';
+					$error_response = stargps_device_management_check_api_connection( $_POST['type_gps'], $_POST['url'], $_POST['email'], $_POST['password'] );
+					echo '<table id="api-error">';
+					echo '<tr>';
+					echo '<th>CODE</th>';
+					echo '<th>Message</th>';
+					echo '</tr>';
+					echo '<tr>';
+					echo '<td>' . $error_response['code'] . '</td>';
+					echo '<td>' . $error_response['message'] . '</td>';
+					echo '</tr>';
+					echo '</table>';
 				}
+			} else {
+				echo '<table id="api-error">';
+				echo '<tr>';
+				echo '<th>CODE</th>';
+				echo '<th>Message</th>';
+				echo '</tr>';
+				echo '<tr>';
+				echo '<td>0</td>';
+				echo '<td>Empty form</td>';
+				echo '</tr>';
+				echo '</table>';
 			}
 		}
 
@@ -423,5 +442,34 @@ class Stargps_Devices_Management_Admin {
 		$result        = $wpdb->get_results( $sql_query, ARRAY_A );
 
 		return json_encode( $result );
+	}
+
+	/**
+	 * Savec Settings.
+	 */
+	public function stargps_device_management_save_settings() {
+		if ( ! current_user_can( 'administrator' ) ) {
+			wp_send_json_error( 'You do not have sufficient rights', 403 );
+			exit();
+		}
+
+		$ets_current_url = sanitize_text_field( trim( $_POST['current_url'] ) );
+		if ( wp_verify_nonce( $_POST['stargps_device_management_settings_nonce'], 'stargps-device-management-settings-nonce' ) ) {
+
+			if ( isset( $_POST['stargps_devices_management_log_api_response'] ) ) {
+				update_option( 'stargps_devices_management_log_api_response', true );
+			} else {
+				update_option( 'stargps_devices_management_log_api_response', false );
+			}
+
+			$message      = esc_html__( 'Your settings are saved successfully.', 'stargps-devices-management' );
+			$pre_location = $ets_current_url . '&save_settings_msg=' . $message . '#stargps-devices-management_settings';
+			wp_safe_redirect( $pre_location );
+		} else {
+			$message      = esc_html__( 'Failed To save .', 'stargps-devices-management' );
+			$pre_location = $ets_current_url . '&save_settings_msg=' . $message . '#stargps-devices-management_settings';
+			wp_safe_redirect( $pre_location );
+		}
+
 	}
 }
