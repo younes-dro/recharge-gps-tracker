@@ -59,6 +59,7 @@ class Stargps_Devices_Management {
 		add_action( 'wp_ajax_stargps_device_management_devices_connect_api', array( $plugin_admin, 'stargps_device_management_devices_connect_api' ) );
 		add_action( 'wp_ajax_stargps_device_management_devices_recharge_manuelle', array( $plugin_admin, 'stargps_device_management_devices_recharge_manuelle' ) );
 		add_action( 'rest_api_init', array( $plugin_admin, 'stargps_device_management_devices_rest_api' ) );
+		add_action( 'admin_post_stargps_device_management_save_settings', array( $plugin_admin, 'stargps_device_management_save_settings' ) );
 	}
 
 	public function stargps_device_management_remove_table() {

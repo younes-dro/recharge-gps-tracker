@@ -443,4 +443,33 @@ class Stargps_Devices_Management_Admin {
 
 		return json_encode( $result );
 	}
+
+	/**
+	 * Savec Settings.
+	 */
+	public function stargps_device_management_save_settings() {
+		if ( ! current_user_can( 'administrator' ) ) {
+			wp_send_json_error( 'You do not have sufficient rights', 403 );
+			exit();
+		}
+
+		$ets_current_url = sanitize_text_field( trim( $_POST['current_url'] ) );
+		if ( wp_verify_nonce( $_POST['stargps_device_management_settings_nonce'], 'stargps-device-management-settings-nonce' ) ) {
+
+			if ( isset( $_POST['stargps_devices_management_log_api_response'] ) ) {
+				update_option( 'stargps_devices_management_log_api_response', true );
+			} else {
+				update_option( 'stargps_devices_management_log_api_response', false );
+			}
+
+			$message      = esc_html__( 'Your settings are saved successfully.', 'stargps-devices-management' );
+			$pre_location = $ets_current_url . '&save_settings_msg=' . $message . '#stargps-devices-management_settings';
+			wp_safe_redirect( $pre_location );
+		} else {
+			$message      = esc_html__( 'Failed To save .', 'stargps-devices-management' );
+			$pre_location = $ets_current_url . '&save_settings_msg=' . $message . '#stargps-devices-management_settings';
+			wp_safe_redirect( $pre_location );
+		}
+
+	}
 }
