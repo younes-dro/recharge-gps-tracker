@@ -5,7 +5,6 @@
 class Logs {
 	function __construct() {
 		// Clear all existing logs.
-		
 	}
 
 	/**
@@ -34,18 +33,14 @@ class Logs {
 	 */
 	public static function write_api_response_logs( $response_arr, $backtrace_arr = array() ) {
 
-		$error        = current_time( 'mysql' );
+		$error = current_time( 'mysql' );
 
-
-		$uuid             = get_option( 'stargps-devices-management_uuid_file_name' );
-		$log_file_name    = $uuid . self::$log_file_name;
-		if( is_array( $response_arr ) ){
-                    
-                    $error .= '==>File:' . $backtrace_arr['file'] . $user_details . '::Line:' . $backtrace_arr['line'] . '::Function:' . $backtrace_arr['function'] . '::' . $response_arr['error'];
-                    file_put_contents( WP_CONTENT_DIR . '/' . $log_file_name, $error . PHP_EOL, FILE_APPEND | LOCK_EX );
-                                            
+		$uuid          = get_option( 'stargps_devices_management_uuid_file_name' );
+		$log_file_name = $uuid . self::$log_file_name;
+		if ( is_array( $response_arr ) ) {
+			$error .= '==>File:' . $backtrace_arr['file'] . $user_details . '::Line:' . $backtrace_arr['line'] . '::Function:' . $backtrace_arr['function'] . '::' . $response_arr['error'];
+			file_put_contents( WP_CONTENT_DIR . '/' . $log_file_name, $error . PHP_EOL, FILE_APPEND | LOCK_EX );
 		}
-
 
 	}
 }
