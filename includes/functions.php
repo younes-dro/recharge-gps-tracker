@@ -17,7 +17,7 @@ function stargps_device_management_head_table( $from = '' ) {
 
 	$table .= '<th scope="col" class="manage-column ">ID</th>';
 	$table .= '<th scope="col"  class="manage-column ">Customer name</th>';
-	// $table .= '<th scope="col"  class="manage-column ">B</th>';
+	$table .= '<th scope="col"  class="manage-column ">B</th>';
 	$table .= '<th scope="col"  class="manage-column ">Login</th>';
 	$table .= '<th scope="col"  class="manage-column ">Num tel</th>';
 	$table .= '<th scope="col"  class="manage-column ">Target name</th>';
