@@ -205,6 +205,7 @@
     
 		$('#stargps_device_management_date_recharge').click(function (e) {
                     e.preventDefault();
+                    alert('ok');
 			$.ajax({
 				url: starGPSDevicesManagementXlsxParams.admin_ajax,
 				type: "POST",
@@ -215,7 +216,7 @@
                                     $('div.resultDevices').html('');
 				},
 				success: function (data) {  
-//                                    console.log(data);
+                                   console.log(data);
 					if (data.error) {
 						
 						alert(data.error.msg);
@@ -226,7 +227,7 @@
                                                     dateFormat : 'dd-mm-yy'
                                                 });
                                                 fill_customer_name();
-						//console.log(data);
+						console.log(data);
 					}
 				},
 				error: function (response, textStatus, errorThrown ) {
